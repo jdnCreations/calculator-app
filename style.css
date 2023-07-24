@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+}
+
+:root {
+  /* THEME 1 */
+
+  /* #### Backgrounds */
+
+  --bg-t1-main: hsl(222, 26%, 31%);
+  --bg-t1-keypad: hsl(223, 31%, 20%);
+  --bg-t1-screen: hsl(224, 36%, 15%);
+
+  /* #### Keys */
+
+  --keys-t1-regular: hsl(225, 21%, 49%);
+  --keys-t1-shadow: hsl(224, 28%, 35%);
+
+  --keys-t1-red: hsl(6, 63%, 50%);
+  --keys-t1-darkred: hsl(6, 70%, 34%);
+
+  --keys-t1-lightorange: hsl(30, 25%, 89%);
+  --keys-t1-orange: hsl(28, 16%, 65%);
+
+  --text-t1-blue: hsl(221, 14%, 31%);
+  --text-t1-white: (0, 0%, 100%);
+
+
+  /* ### Theme 2 */
+
+  /* #### Backgrounds */
+
+  --bg-t2-main: hsl(0, 0%, 90%);
+  --bg-t2-keypad: hsl(0, 5%, 81%);
+  --bg-t2-screen: hsl(0, 0%, 93%);
+
+  /* #### Keys */
+
+  --keys-t2-regular: hsl(185, 42%, 37%);
+  --keys-t2-shadow: hsl(185, 58%, 25%);
+
+  --keys-t2-orange: hsl(25, 98%, 40%);
+  --keys-t2-darkorange: hsl(25, 99%, 27%);
+
+  --keys-t2-lightgrayyellow: hsl(45, 7%, 89%);
+  --keys-t2-darkgrayorange: hsl(35, 11%, 61%);
+
+  /* #### Text */
+
+  --text-t2-darkyellow: hsl(60, 10%, 19%);
+  --text-t2-white: hsl(0, 0%, 100%);
+
+
+  /* ### Theme 3 */
+
+  /* #### Backgrounds */
+
+  --bg-t3-main: hsl(268, 75%, 9%);
+  --bg-t3-keypad: hsl(268, 71%, 12%);
+
+  /* #### Keys */
+
+  --keys-t3-regular: hsl(281, 89%, 26%);
+  --keys-t3-shadow: hsl(285, 91%, 52%);
+
+  --keys-t3-cyan: hsl(176, 100%, 44%);
+  --keys-t3-softcyan: hsl(177, 92%, 70%);
+
+  --keys-t3-darkviolet: hsl(268, 47%, 21%);
+  --keys-t3-darkmagenta: hsl(290, 70%, 36%);
+
+  /* #### Text */
+
+  --text-t3-yellow: hsl(52, 100%, 62%);
+  --text-t3-blue: hsl(198, 20%, 13%);
+  --text-t3-white: hsl(0, 0%, 100%);
+}
+
