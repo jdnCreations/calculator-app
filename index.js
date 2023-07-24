@@ -3,9 +3,42 @@
 const keypad = document.querySelector('.keypad');
 const keypadButtons = keypad.querySelectorAll('button');
 const display = document.getElementById('display');
+const wrapper = document.querySelector('.wrapper');
+
+const toggle = document.querySelector('.indicator');
+
+let togglePosition = 1;
 
 let calculation = '';
 let answer = '';
+
+const storeTheme = function(theme) {
+  localStorage.setItem("theme", theme);
+}
+
+const setTheme = () => {
+  if (localStorage.getItem("theme")) {
+    const activeTheme = localStorage.getItem("theme");
+    console.log(activeTheme);
+    switch(activeTheme) {
+      case 'light':
+        togglePosition = 2;
+        toggle.style.transform = "translateX(20px)";
+        break;
+      case 'dark':
+        togglePosition = 1;
+        toggle.style.transform = "translateX(0)";
+        break;
+      case 'other':
+        togglePosition = 3;
+        toggle.style.transform = "translateX(40px)";
+        break;
+    }
+    wrapper.className = `wrapper ${activeTheme}`;
+  } else {
+    console.log('no theme in localstorage');
+  }
+}
 
 function calculate() {
   const operators = ['+', '-', 'x', '/'];
@@ -51,9 +84,7 @@ for (let i = 0; i < keypadButtons.length; i++) {
         answer = '';
         return display.innerHTML = '';
       case 'del':
-        console.log(calculation);
         calculation = String(calculation).slice(0, -1);
-        console.log(calculation);
         display.innerHTML = calculation;
         return console.log('delete');
       default:
@@ -62,3 +93,25 @@ for (let i = 0; i < keypadButtons.length; i++) {
     }
   })
 }
+
+// toggle functionality
+toggle.addEventListener('click', () => {
+  if (togglePosition === 1) {
+    togglePosition++;
+    toggle.style.transform = "translateX(20px)";
+    storeTheme("light");
+    setTheme();
+  } else if (togglePosition === 2) {
+    togglePosition++;
+    toggle.style.transform = "translateX(40px)";
+    storeTheme("other");
+    setTheme();
+  } else if (togglePosition === 3) {
+    togglePosition = 1;
+    toggle.style.transform = "translateX(0)";
+    storeTheme("dark");
+    setTheme();
+  }
+})
+
+document.onload = setTheme();

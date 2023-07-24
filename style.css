@@ -20,23 +20,28 @@ main {
 
   /* #### Backgrounds */
 
-  --bg-t1-main: hsl(222, 26%, 31%);
-  --bg-t1-keypad: hsl(223, 31%, 20%);
-  --bg-t1-screen: hsl(224, 36%, 15%);
+  --bg-main: hsl(222, 26%, 31%);
+  --bg-keypad: hsl(223, 31%, 20%);
+  --bg-screen: hsl(224, 36%, 15%);
+  --bg-button: hsl(30, 25%, 89%);
+  --bg-button-bottom: hsl(28, 16%, 65%);
+
 
   /* #### Keys */
 
-  --keys-t1-regular: hsl(225, 21%, 49%);
-  --keys-t1-shadow: hsl(224, 28%, 35%);
+  --keys-regular: hsl(225, 21%, 49%);
+  --keys-shadow: hsl(224, 28%, 35%);
 
-  --keys-t1-red: hsl(6, 63%, 50%);
-  --keys-t1-darkred: hsl(6, 70%, 34%);
+  --keys-equal: hsl(6, 63%, 50%);
+  --keys-equal-bottom: hsl(6, 70%, 34%);
 
-  --keys-t1-lightorange: hsl(30, 25%, 89%);
-  --keys-t1-orange: hsl(28, 16%, 65%);
+  --keys-lightorange: hsl(30, 25%, 89%);
+  --keys-orange: hsl(28, 16%, 65%);
 
-  --text-t1-blue: hsl(221, 14%, 31%);
-  --text-t1-white: hsl(0, 0%, 100%);
+  --text-button: hsl(221, 14%, 31%);
+  --text-screen: hsl(0, 0%, 100%);
+
+  --text-special: hsl(0, 0%, 100%);
 
 
   /* ### Theme 2 */
@@ -68,25 +73,25 @@ main {
 
   /* #### Backgrounds */
 
-  --bg-t3-main: hsl(268, 75%, 9%);
-  --bg-t3-keypad: hsl(268, 71%, 12%);
+  --bg-main: hsl(268, 75%, 9%);
+  --bg-keypad: hsl(268, 71%, 12%);
 
   /* #### Keys */
 
-  --keys-t3-regular: hsl(281, 89%, 26%);
-  --keys-t3-shadow: hsl(285, 91%, 52%);
+  --keys-regular: hsl(281, 89%, 26%);
+  --keys-shadow: hsl(285, 91%, 52%);
 
-  --keys-t3-cyan: hsl(176, 100%, 44%);
-  --keys-t3-softcyan: hsl(177, 92%, 70%);
+  --keys-cyan: hsl(176, 100%, 44%);
+  --keys-softcyan: hsl(177, 92%, 70%);
 
-  --keys-t3-darkviolet: hsl(268, 47%, 21%);
-  --keys-t3-darkmagenta: hsl(290, 70%, 36%);
+  --keys-darkviolet: hsl(268, 47%, 21%);
+  --keys-darkmagenta: hsl(290, 70%, 36%);
 
   /* #### Text */
 
-  --text-t3-yellow: hsl(52, 100%, 62%);
-  --text-t3-blue: hsl(198, 20%, 13%);
-  --text-t3-white: hsl(0, 0%, 100%);
+  --text-yellow: hsl(52, 100%, 62%);
+  --text-blue: hsl(198, 20%, 13%);
+  --text-white: hsl(0, 0%, 100%);
 }
 
 .wrapper {
@@ -94,7 +99,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-t1-main);
+  background-color: var(--bg-main);
+  color-scheme: light;
 }
 
 .calculator {
@@ -113,7 +119,7 @@ main {
 }
 
 .title {
-  color: var(--text-t1-white);
+  color: var(--text-screen);
   font-size: 2rem;
 }
 
@@ -121,7 +127,7 @@ main {
   display: flex;
   text-transform: uppercase;
   font-size: 1rem;
-  color: var(--text-t1-white);
+  color: var(--text-screen);
   gap: 2rem;
 }
 
@@ -149,24 +155,26 @@ main {
   padding-right: .3rem;
   width: 70px;
   height: 26px;
-  background-color: var(--bg-t1-keypad);
+  background-color: var(--bg-keypad);
   border-radius: 999px;
 }
 
 .indicator {
   width: 18px;
   height: 18px;
-  background-color: var(--keys-t1-red);
+  background-color: var(--keys-equal);
   border-radius: 999px;
+  cursor: pointer;
+  transition: transform 150ms ease-in-out;
 }
 
 .screen {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: var(--text-t1-white);
+  color: var(--text-screen);
   font-size: 2.5rem;
-  background-color: var(--bg-t1-screen);
+  background-color: var(--bg-screen);
   height: 100px;
   border-radius: .75rem;
   padding: 1.5rem;
@@ -176,7 +184,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  background-color: var(--bg-t1-keypad);
+  background-color: var(--bg-keypad);
   border-radius: .75rem;
   padding: 1.5rem;
   gap: 1rem;
@@ -184,8 +192,8 @@ main {
 
 button {
   text-align: center;
-  color: var(--text-t1-blue);
-  background-color: var(--keys-t1-lightorange);
+  color: var(--text-button);
+  background-color: var(--bg-button);
   text-transform: uppercase;
   font-family: var(--ff);
   font-size: 2rem;
@@ -195,23 +203,17 @@ button {
   border-radius: .25rem;
   outline: none;
   border: none;
-  box-shadow: 0px 4px 0px var(--keys-t1-orange);
-}
-
-button::after {
-  background-color: var(--keys-t1-shadow);
-  position: relative;
-  bottom: -20px;
+  box-shadow: 0px 4px 0px var(--bg-button-bottom);
 }
 
 #delete, #reset, #equals {
   font-size: 1.5rem;
-  color: var(--text-t1-white);
+  color: var(--text-special);
 }
 
 #delete, #reset {
-  background-color: var(--keys-t1-regular);
-  box-shadow: 0 4px 0 var(--keys-t1-shadow);
+  background-color: var(--keys-regular);
+  box-shadow: 0 4px 0 var(--keys-shadow);
 
 }
 
@@ -220,8 +222,8 @@ button::after {
 }
 
 #equals {
-  background-color: var(--keys-t1-red);
-  box-shadow: 0 4px 0 var(--keys-t1-darkred);
+  background-color: var(--keys-equal);
+  box-shadow: 0 4px 0 var(--keys-equal-bottom);
   width: 100%;
 }
 
@@ -251,4 +253,59 @@ button::after {
 .row-5 {
   grid-row: 5;
   gap: .75rem;
+}
+
+.light {
+  --bg-main: hsl(0, 0%, 90%);
+  --bg-keypad: hsl(0, 5%, 81%);
+  --bg-screen: hsl(0, 0%, 93%);
+
+  --keys-regular: hsl(185, 42%, 37%);
+  --keys-shadow: hsl(185, 58%, 25%);
+
+  --keys-equal: hsl(25, 98%, 40%);
+  --keys-equal-bottom: hsl(25, 99%, 27%);
+  
+  --text-button: hsl(60, 10%, 19%);
+  --text-screen: hsl(60, 10%, 19%);
+}
+
+.other {
+  --bg-main: hsl(268, 75%, 9%);
+  --bg-keypad: hsl(268, 71%, 12%);
+  --bg-screen: hsl(268, 71%, 12%);
+  --bg-button: hsl(268, 47%, 21%);
+  --bg-button-bottom: hsl(290, 70%, 36%);
+
+  --keys-regular: hsl(281, 89%, 26%);
+  --keys-shadow: hsl(285, 91%, 52%);
+
+  --keys-equal: hsl(176, 100%, 44%);
+  --keys-equal-bottom: hsl(177, 92%, 70%);
+
+  --text-button: hsl(52, 100%, 62%);
+  --text-screen: hsl(52, 100%, 62%);
+  --text-white: hsl(0, 0%, 100%);
+}
+
+.dark {
+  --bg-main: hsl(222, 26%, 31%);
+  --bg-keypad: hsl(223, 31%, 20%);
+  --bg-screen: hsl(224, 36%, 15%);
+  --bg-button: hsl(30, 25%, 89%);
+  --bg-button-bottom: hsl(28, 16%, 65%);
+
+  --keys-regular: hsl(225, 21%, 49%);
+  --keys-shadow: hsl(224, 28%, 35%);
+
+  --keys-equal: hsl(6, 63%, 50%);
+  --keys-equal-bottom: hsl(6, 70%, 34%);
+
+  --keys-lightorange: hsl(30, 25%, 89%);
+  --keys-orange: hsl(28, 16%, 65%);
+
+  --text-button: hsl(221, 14%, 31%);
+  --text-screen: hsl(0, 0%, 100%);
+
+  --text-special: hsl(0, 0%, 100%);
 }
