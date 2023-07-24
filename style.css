@@ -111,6 +111,20 @@ main {
   gap: 1rem;
 }
 
+@media (min-width: 768px) {
+  .calculator {
+    max-width: 34rem;
+  }
+
+  button {
+    max-width: 25%;
+  }
+
+  #reset, #equals {
+    max-width: 50%;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -197,7 +211,8 @@ button {
   text-transform: uppercase;
   font-family: var(--ff);
   font-size: 2rem;
-  width: 60px;
+  width: 100%;
+  min-width: 60px;
   aspect-ratio: 1;
   height: 60px;
   border-radius: .25rem;
@@ -230,7 +245,7 @@ button {
 .row-1, .row-2, .row-3, .row-4, .row-5 {
   display: flex;
   justify-content: space-between;
-  /* gap: .75rem; */
+  gap: .75rem;
   grid-column: 1 / 5;
 }
 
@@ -311,5 +326,5 @@ button {
 }
 
 @media (prefers-color-scheme: light) {
-  
+
 }
