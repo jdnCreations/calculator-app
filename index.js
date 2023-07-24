@@ -36,7 +36,21 @@ const setTheme = () => {
     }
     wrapper.className = `wrapper ${activeTheme}`;
   } else {
-    console.log('no theme in localstorage');
+    let theme = '';
+    if (window.matchMedia) {
+      if (window.matchMedia('(prefers-color-scheme: dark').matches) {
+        storeTheme('dark');
+        togglePosition = 1;
+        toggle.style.transform = "translateX(0)";
+        theme = 'dark';
+      } else {
+        storeTheme('light');
+        togglePosition = 2;
+        toggle.style.transform = "translateX(20px)";
+        theme = 'light';
+      }
+      wrapper.className = `wrapper ${theme}`;
+    }
   }
 }
 
